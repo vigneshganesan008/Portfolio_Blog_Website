@@ -9,7 +9,7 @@
 <body>  
     <header>My Blogs</header>
     {% for blog in blogs %}
-        <h2>{{blog.title}}</h2>
+    <a href="{% url 'blog:blogDetails' blog.id %}"> <h2>{{blog.title}}</h2></a>
         <p>{{blog.discription}}</p>
         {{blog.date}}
     {% endfor %}

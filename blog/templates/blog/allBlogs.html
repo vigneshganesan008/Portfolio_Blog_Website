@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-
+<html>
 <head>
     <title>
         All Blogs
     </title>
 </head>
 
-<body>  
-    <header>My Blogs</header>
+<body>
+    <header>
+        <h1>Blogs</h1>
+    </header>
+    <h2>Vignesh has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h2>
     {% for blog in blogs %}
-    <a href="{% url 'blog:blogDetails' blog.id %}"> <h2>{{blog.title}}</h2></a>
-        <p>{{blog.discription}}</p>
-        {{blog.date}}
+    <a href="{% url 'blog:blogDetails' blog.id %}">
+        <h2>{{blog.title}}</h2>
+    </a>
+    <p>{{ blog.discription|striptags|truncatechars:100 }}</p>
+    {{blog.date|date:'M d Y' }}
     {% endfor %}
 </body>
 

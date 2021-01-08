@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <title>
         {{ blog.title }}
@@ -9,7 +10,11 @@
     <header>
         {{blog.title}}
     </header>
-    
+    {{blog.date|date:'M d Y' }}
+    <br>
+    {{blog.discription|safe}}
+    <br>
+
 </body>
 
 </html>

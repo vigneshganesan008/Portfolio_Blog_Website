@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-
+<html>
 <head>
     <title>
         Portfolio
@@ -11,6 +11,7 @@
     <header>
         <h1>Portfolio<h1>
     </header>
+    <a href="{% url 'blog:allBlogs' %}"> Blogs</a>
     <img src="{% static 'Profile_Photo.jpg' %}" height="75" width="75">
     <a href="{% static 'Vignesh_Ganesan.pdf' %}">Resume</a>
     {% for project in projects %}

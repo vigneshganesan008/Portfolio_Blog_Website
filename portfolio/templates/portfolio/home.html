@@ -3,17 +3,34 @@
 {% block content %}
 
 {% load static %}
-<centre><img src="{% static 'Profile_Photo.jpg' %}" height="400" width="400"
-        class="img-fluid img-thumbnail position-absolute top-50 start-50 translate-middle"></centre>
-
-{% for project in projects %}
-<h2>{{project.title}}</h2>
-<p>{{project.discription}}</p>
-<img src="{{ project.image.url }}">
-{% if project.url %}
+<div class="row justify-content-center">
+        <div class="col-4">
+                <img src="{% static 'Profile_Photo.jpg' %}" height="350" width="350" class="img-fluid img-thumbnail ">
+        </div>
+</div>
+<div class="row justify-content-center">
+        <div class="col-8">
+                <h1 class="text-center fw-bold">Hi 👋, I'm Vignesh Ganesan.<br>An upcoming Software Developer, tech
+                        enthusiast and
+                        football player from India😊</h1>
+        </div>
+</div>
 <br>
-<a href="{{project.url}}">Link</a>
-{% endif %}
-{% endfor %}
-
+<span class="fs-2">Projects</span>
+<hr>
+<div class="row">
+        {% for project in projects %}
+        <div class="col-4">
+                {% if project.url %}
+                <a href="{{project.url}}">
+                        <img src="{{ project.image.url }}" width="325" height="200">
+                </a>
+                {% else %}
+                <img src="{{ project.image.url }}" width="325" height="200">
+                {% endif %}
+                <h3>{{project.title}}</h3>
+                <p>{{project.discription}}</p>
+        </div>
+        {% endfor %}
+</div>
 {% endblock content %}
